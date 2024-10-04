@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/HapticFeedback/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/HapticFeedback/actions/workflows/Tests.yml)
+
 # HapticFeedback
 
 HapticFeedback is a Swift library designed to simplify the integration of haptic feedback in iOS applications. It provides a convenient abstraction over the iOS `UIImpactFeedbackGenerator`, making it easier to trigger haptic feedback in response to various user interactions.
