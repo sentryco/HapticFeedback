@@ -68,7 +68,7 @@ extension HapticFeedback {
       case .success: // .credentialsPasted:
          UINotificationFeedbackGenerator().notificationOccurred(.success)
          // Generate warning notification feedback for wrong password
-      case .wrong: // .wrongPassword:
+      case .deny: // .wrongPassword:
          UINotificationFeedbackGenerator().notificationOccurred(.warning)
          // Generate warning notification feedback for error
       case .failure: // .error:
