@@ -4,7 +4,7 @@ import UIKit
 /**
  * Provides a more convenient name for the HapticFeedback class.
  * - Description: This typealias simplifies the usage of UIImpactFeedbackGenerator by providing a more descriptive and context-specific name, enhancing code readability and maintainability.
- * - Important: ⚠️️ All calls to this must be fenced for ios
+ * - Important: ⚠️️ All calls to this must be fenced for iOS
  * - Fixme: ⚠️️⚠️️ Maybe unfence this class and just do nothing if macOS etc 👈 maybe 👉 make another class that does that on top of this? 👈
  * Example usage:
  * ```swift
@@ -16,6 +16,7 @@ import UIKit
  * ```
  */
 public typealias HapticFeedback = UIImpactFeedbackGenerator
+public typealias Haptic = HapticFeedback // Convenient
 
 extension HapticFeedback {
    /**
@@ -36,6 +37,12 @@ extension HapticFeedback {
  * Play
  */
 extension HapticFeedback {
+   /**
+    * Trigger (convenient)
+    */
+   public static func trigger(_ kind: Kind) {
+      play(kind)
+   }
    /**
     * An enumeration of haptic feedback types.
     * - Description: Plays the specified type of haptic feedback based on the context of the user interaction.
@@ -106,7 +113,7 @@ extension HapticFeedback {
       // Triggered by successful completion of an action (a password is generated, When QR is found)
       case success
       // Triggered by authentication failures or mismatches (Wrote wrong password in auth, or password)
-      case wrong // - Fixme: ⚠️️ change this to deniy
+      case deny
       // Triggered by operational failures (When error occurs)
       case failure
       // Triggered by data extraction actions (On clipboard copy)
@@ -127,8 +134,11 @@ extension HapticFeedback {
    public var sucessfulAction: Kind {
       .success
    }
+   public var wrong: Kind {
+      .deny
+   }
    public var wrongPassword: Kind {
-      .wrong
+      .deny
    }
    public var error: Kind {
       .failure
