@@ -24,7 +24,7 @@ Haptic.trigger(.exit)
 Haptic.trigger(.success)
 
 // Trigger deniy haptic feedback
-Haptic.trigger(.deniy)
+Haptic.trigger(.deny)
 
 // Trigger failure haptic feedback
 Haptic.trigger(.failure)
