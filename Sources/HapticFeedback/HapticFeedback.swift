@@ -3,7 +3,10 @@ import Foundation
 import UIKit
 /**
  * Provides a more convenient name for the HapticFeedback class.
- * - Description: This typealias simplifies the usage of UIImpactFeedbackGenerator by providing a more descriptive and context-specific name, enhancing code readability and maintainability.
+ * - Description: This typealias simplifies the usage of 
+ *                UIImpactFeedbackGenerator by providing a more 
+ *                descriptive and context-specific name, enhancing 
+ *                code readability and maintainability.
  * - Important: ⚠️️ All calls to this must be fenced for iOS
  * - Fixme: ⚠️️⚠️️ Maybe unfence this class and just do nothing if macOS etc 👈 maybe 👉 make another class that does that on top of this? 👈
  * Example usage:
@@ -45,7 +48,8 @@ extension HapticFeedback {
    }
    /**
     * An enumeration of haptic feedback types.
-    * - Description: Plays the specified type of haptic feedback based on the context of the user interaction.
+    * - Description: Executes the appropriate haptic feedback corresponding
+    *                to the specific user interaction context.
     * - Example: 
     * ```swift
     * HapticFeedback.play(.appUnlocked)
@@ -102,7 +106,9 @@ extension HapticFeedback {
 #endif
 /**
  * An enumeration of haptic feedback types.
- * - Description: Enumerates the different types of haptic feedback that can be triggered in response to various user actions within the app.
+ * - Description: Enumerates the different types of haptic feedback that
+ *                can be triggered in response to various user actions
+ *                within the app.
  */
 extension HapticFeedback {
    public enum Kind {
