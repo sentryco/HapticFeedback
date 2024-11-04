@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/HapticFeedback/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/HapticFeedback/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/ea085160-e70b-4f56-a538-c58224b56a74)](https://codebeat.co/projects/github-com-sentryco-hapticfeedback-main)
 
 # HapticFeedback
 
