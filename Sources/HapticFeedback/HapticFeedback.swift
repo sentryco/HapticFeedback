@@ -115,7 +115,7 @@ extension HapticFeedback {
       // Triggered when accessing secure or main features (menu is opened, appUnlocked)
       case entry
       // Triggered when leaving a secure or main feature (exit modal or menu)
-      case exit 
+      case exit
       // Triggered by successful completion of an action (a password is generated, When QR is found)
       case success
       // Triggered by authentication failures or mismatches (Wrote wrong password in auth, or password)

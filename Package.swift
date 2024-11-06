@@ -10,13 +10,13 @@ let package = Package(
     products: [
         .library(
             name: "HapticFeedback",
-            targets: ["HapticFeedback"]),
+            targets: ["HapticFeedback"])
     ],
     targets: [
         .target(
             name: "HapticFeedback"),
         .testTarget(
             name: "HapticFeedbackTests",
-            dependencies: ["HapticFeedback"]),
+            dependencies: ["HapticFeedback"])
     ]
 )
