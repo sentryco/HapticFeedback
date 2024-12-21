@@ -90,14 +90,23 @@ public typealias HapticFeedback = NSObject
  */
 extension HapticFeedback {
    /**
-    * - Fixme: ⚠️️ add doc
-    * - Parameter kind: - Fixme: ⚠️️  add doc
+    * Plays a haptic feedback effect on macOS (Currently not supported)
+    * - Description: This method is a stub implementation for macOS compatibility.
+    *                While haptic feedback is not supported on macOS, this method
+    *                exists to maintain API consistency across platforms.
+    * - Parameter kind: The type of haptic feedback that would be played on iOS.
+    *                   On macOS this parameter has no effect.
     */
    public static func play(_ kind: Kind) {
       // not supported by macOS
    }
    /**
-    * - Fixme: ⚠️️ add doc
+    * Triggers a vibration feedback effect on macOS (Currently not supported)
+    * - Description: This method is a stub implementation for macOS compatibility.
+    *                While vibration feedback is not supported on macOS, this method
+    *                exists to maintain API consistency across platforms.
+    * - Note: This is a no-op method on macOS since haptic/vibration feedback
+    *         is not available on macOS devices
     */
    public func vibrate() {
       // not supported by macOS
