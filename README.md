@@ -41,6 +41,70 @@ Haptic.trigger(.extracted)
 .package(url: "https://github.com/sentryco/HapticFeedback", branch: "main")
 ```
 
-## License
+## Todo:
 
-HapticFeedback is available under the MIT license. See the LICENSE file for more info.
+- Implement Haptic Feedback Support on macOS
+
+Currently, the haptic feedback functionality is only implemented for iOS, while macOS methods are stubs that do nothing. macOS supports haptic feedback via `NSHapticFeedbackManager`. By implementing haptic feedback on macOS, you can provide a consistent experience across platforms.
+
+**Updated `HapticFeedback.swift`:**
+
+```swift:Sources/HapticFeedback/HapticFeedback.swift
+import Foundation
+
+#if os(iOS)
+import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
+
+public class HapticFeedback {
+    public enum Kind {
+        case entry
+        case exit
+        case success
+        case deny
+        case failure
+        case extract
+    }
+
+    public static func trigger(_ kind: Kind) {
+        #if os(iOS)
+        playiOS(kind)
+        #elseif os(macOS)
+        playmacOS(kind)
+        #endif
+    }
+
+    #if os(iOS)
+    private static func playiOS(_ kind: Kind) {
+        switch kind {
+        case .entry:
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        case .exit:
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        case .success:
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+        case .deny:
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        case .failure:
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
+        case .extract:
+            UISelectionFeedbackGenerator().selectionChanged()
+        }
+    }
+    #elseif os(macOS)
+    private static func playmacOS(_ kind: Kind) {
+        let feedbackManager = NSHapticFeedbackManager.defaultPerformer
+        switch kind {
+        case .entry, .success, .extract:
+            feedbackManager.perform(.generic, performanceTime: .default)
+        case .exit:
+            feedbackManager.perform(.alignment, performanceTime: .default)
+        case .deny, .failure:
+            feedbackManager.perform(.levelChange, performanceTime: .default)
+        }
+    }
+    #endif
+}
+```
